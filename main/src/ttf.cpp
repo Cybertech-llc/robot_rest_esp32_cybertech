@@ -22,6 +22,7 @@ uint8_t new_interval = 200;
 
 void Ttf::set_enabled_sensors(bool enabled[6]){
   for(int i = 0;i<6;i++){
+    if (i == 2 || i == 4) continue;
     enabled_sensors[i] = enabled[i];
   }
 }
@@ -84,6 +85,7 @@ void Ttf::init() {
 void Ttf::task() {
 
   for (uint8_t i = 0; i < 6; i++) {
+    if (i == 2 || i == 4) continue;
     i2c_switch_to_ch(i);
 
     sensor[i].setTimeout(500);
@@ -94,6 +96,7 @@ void Ttf::task() {
 
   while (1) {
     for (uint8_t i = 0; i < 6; i++) {
+      if (i == 2 || i == 4) continue;
       if (!enabled_sensors[i]) continue;
 
       i2c_switch_to_ch(i);
@@ -109,6 +112,7 @@ void Ttf::task() {
 
     if(interval_changed){
       for (uint8_t i = 0; i < 6; i++) {
+        if (i == 2 || i == 4) continue;
         i2c_switch_to_ch(i);
         sensor[i].setMeasurementTimingBudget(new_interval*1000);
       }

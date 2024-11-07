@@ -163,7 +163,7 @@ esp_err_t Server::motor_put_handler(httpd_req_t *req) {
 
   ESP_LOGI(TAG, "Set Motor Left:%d, Right:%d, L_time:%d, R_time:%d.",
            (int)l_value, (int)r_value, (int)l_time_value, (int)r_time_value);
-  robot.set_PWM(l_value, r_value, l_time_value, r_time_value);
+  robot.set_PWM(r_value, l_value, r_time_value, l_time_value);
 
   cJSON_Delete(json);
 
