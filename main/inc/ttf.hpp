@@ -28,5 +28,5 @@ public:
   void get_laser_data(uint16_t laser_buff[10]);
   void set_enabled_sensors(bool enabled[6]);
   void set_interval(uint8_t interval);
-  bool enabled_sensors[6] = {true,true,true,true,true,true};
+  bool enabled_sensors[6] = {true,true,false,true,false,true};
 };
