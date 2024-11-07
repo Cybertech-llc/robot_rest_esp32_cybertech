@@ -100,6 +100,7 @@ void Server::start_rest_server(void) {
 }
 
 esp_err_t Server::motor_put_handler(httpd_req_t *req) {
+  httpd_resp_set_hdr(req, "Connection", "close");
   char content[1000];
   int ret = httpd_req_recv(req, content, sizeof(content) - 1);
   if (ret <= 0) {
@@ -172,6 +173,7 @@ esp_err_t Server::motor_put_handler(httpd_req_t *req) {
 }
 
 esp_err_t Server::move_put_handler(httpd_req_t *req) {
+  httpd_resp_set_hdr(req, "Connection", "close");
   char content[1000];
   int ret = httpd_req_recv(req, content, sizeof(content) - 1);
   if (ret <= 0) {
@@ -275,6 +277,7 @@ esp_err_t Server::move_put_handler(httpd_req_t *req) {
 }
 
 esp_err_t Server::sensor_post_handler(httpd_req_t *req) {
+  httpd_resp_set_hdr(req, "Connection", "close");
   char content[1000];
   int ret = httpd_req_recv(req, content, sizeof(content) - 1);
   if (ret <= 0) {
@@ -365,6 +368,7 @@ esp_err_t Server::sensor_post_handler(httpd_req_t *req) {
 }
 
 esp_err_t Server::sensor_config_post_handler(httpd_req_t *req) {
+  httpd_resp_set_hdr(req, "Connection", "close");
   char content[1000];
   int ret = httpd_req_recv(req, content, sizeof(content) - 1);
   if (ret <= 0) {
