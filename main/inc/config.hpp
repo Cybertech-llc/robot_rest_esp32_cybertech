@@ -12,8 +12,8 @@
 // #define PCB_WITH_BROKEN_PIN39
 
 // --- WiFi config ---
-#define WIFI_SSID "GL-MT1300-260"
-#define WIFI_PASS "goodlife"
+#define WIFI_SSID "ROBOT"
+#define WIFI_PASS "Cybertech12345"
 
 #ifndef PCB_VERSION_WITH_ENCODER
 #define MOTOR_L_ENC_A GPIO_NUM_47
